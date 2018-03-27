@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(106,135,89); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+MainActivity.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com.example.arthu.transapp</span><span class="s0">;</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">android.app.AlertDialog</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android.app.Dialog</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android.support.annotation.NonNull</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android.support.v7.app.AppCompatActivity</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android.util.Log</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android.widget.Button</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android.widget.ListView</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android.widget.TextView</span><span class="s0">;</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">java.util.Arrays</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">java.util.List</span><span class="s0">;</span><span class="s1"> 
+ 
+</span><span class="s0">import static </span><span class="s1">com.example.arthu.transapp.R.id.haut</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import static </span><span class="s1">com.example.arthu.transapp.R.id.bas</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import static </span><span class="s1">com.example.arthu.transapp.R.id.haut</span><span class="s0">;</span><span class="s1"> 
+ 
+</span><span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity { 
+ 
+    List&lt;String&gt; l</span><span class="s0">;</span><span class="s1"> 
+    MonAdapteur adapter</span><span class="s0">;</span><span class="s1"> 
+ 
+    </span><span class="s0">private </span><span class="s1">TextView textViewhaut</span><span class="s0">;</span><span class="s1"> 
+    </span><span class="s0">private </span><span class="s1">Button button</span><span class="s0">;</span><span class="s1"> 
+ 
+    @Override 
+    </span><span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) { 
+ 
+        </span><span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span><span class="s1"> 
+        setContentView(R.layout.activity_main)</span><span class="s0">;</span><span class="s1"> 
+        l = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;(Arrays.asList(</span><span class="s2">&quot;Contact1&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact2&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact3&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact4&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact5&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact6&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact7&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact8&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact9&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact10&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact11&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact12&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact13&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact14&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact15&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact16&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact17&quot;</span><span class="s0">, </span><span class="s2">&quot;Contact18,&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+ 
+        adapter = </span><span class="s0">new </span><span class="s1">MonAdapteur( 
+                </span><span class="s0">this,</span><span class="s1"> 
+                R.layout.item2</span><span class="s0">,</span><span class="s1"> 
+                l 
+        )</span><span class="s0">;</span><span class="s1"> 
+ 
+ 
+        ListView lv = findViewById(R.id.lv)</span><span class="s0">;</span><span class="s1"> 
+        lv.setAdapter(adapter)</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+ 
+    </span><span class="s0">public void </span><span class="s1">clicBas(View v){ 
+        Log.i(</span><span class="s2">&quot;Main&quot;</span><span class="s0">, </span><span class="s2">&quot;Cliquer bas &quot; </span><span class="s1">+ v.getTag())</span><span class="s0">;</span><span class="s1"> 
+         } 
+ 
+    </span><span class="s0">public void </span><span class="s1">clicHaut(View v) {Log.i(</span><span class="s2">&quot;Main&quot;</span><span class="s0">, </span><span class="s2">&quot;Cliquer haut &quot; </span><span class="s1">+ v.getTag())</span><span class="s0">;</span><span class="s1">} 
+ 
+    </span><span class="s0">public void </span><span class="s1">clicAdd(View v){Log.i(</span><span class="s2">&quot;Main&quot;</span><span class="s0">, </span><span class="s2">&quot;Cliquer add &quot; </span><span class="s1">+ v.getTag())</span><span class="s0">;</span><span class="s1">} 
+ 
+} 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</span></pre>
+</body>
+</html>
